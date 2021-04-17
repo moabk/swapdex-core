@@ -1,4 +1,4 @@
-## WANChain Go
+## swapdex Go
 
 Branch    | Tests 
 ----------|-------
@@ -43,7 +43,7 @@ This command will:
  * Start sdx in fast sync mode (default, can be changed with the `--syncmode` flag), causing it to
    download more data in exchange for avoiding processing the entire history of the wanchain network,
    which is very CPU intensive.
-   This too is optional and if you leave it out you can always attach to an already running gwan instance
+   This too is optional and if you leave it out you can always attach to an already running sdx instance
    with `gwan attach`.
 
 ### Full node on the wanchain test network
@@ -75,7 +75,7 @@ over between the main network and test network, you should make sure to always u
 for play-money and real-money. Unless you manually move accounts, gwan will by default correctly
 separate the two networks and will not make any accounts available between them.*
 
-### Programatically interfacing gwan nodes
+### Programatically interfacing sdx nodes
 
 As a developer, sooner rather than later you'll want to start interacting with sdx and the swapdex
 network via your own programs and not manually through the console. To aid this, sdx has built in
@@ -132,7 +132,7 @@ actual `enode` URL.
 #### Starting up your member nodes
 
 With the bootnode operational and externally reachable (you can try `telnet <ip> <port>` to ensure
-it's indeed reachable), start every subsequent gwan node pointed to the bootnode for peer discovery
+it's indeed reachable), start every subsequent sdx node pointed to the bootnode for peer discovery
 via the `--bootnodes` flag. It will probably also be desirable to keep the data directory of your
 private network separated, so do also specify a custom `--datadir` flag.
 
@@ -145,7 +145,7 @@ need to configure a miner to process transactions and create new blocks for you.
 
 #### Docker quick start
 
-One of the quickest ways to get wanchain up and running on your machine is by using Docker:
+One of the quickest ways to get swapdex up and running on your machine is by using Docker:
 
 ```
 docker run -d --name swapdex-node -v /home/ubuntu/swapdex:/root \
@@ -154,5 +154,5 @@ docker run -d --name swapdex-node -v /home/ubuntu/swapdex:/root \
 ```
 
 This will start sdx in fast-sync mode with a DB memory allowance of 1GB just as the above command does.  It will also create a persistent volume in your home directory for saving your blockchain as well as map the default ports. 
-Do not forget `--rpcaddr 0.0.0.0`, if you want to access RPC from other containers and/or hosts. By default, `gwan` binds to the local interface and RPC endpoints is not accessible from the outside.
+Do not forget `--rpcaddr 0.0.0.0`, if you want to access RPC from other containers and/or hosts. By default, `sddx` binds to the local interface and RPC endpoints is not accessible from the outside.
 
