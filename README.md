@@ -44,7 +44,7 @@ This command will:
    download more data in exchange for avoiding processing the entire history of the wanchain network,
    which is very CPU intensive.
    This too is optional and if you leave it out you can always attach to an already running sdx instance
-   with `gwan attach`.
+   with `sdx attach`.
 
 ### Full node on the wanchain test network
 
