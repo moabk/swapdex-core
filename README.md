@@ -15,7 +15,7 @@ If build release version,Docker is required
 You can install them using your favourite package manager.
 Once the dependencies are installed, run
 
-    make gwan
+    make sdx
 
 or, to build the full suite of utilities:
 
@@ -25,7 +25,7 @@ or, to build the release version
 
     make release	
 
-## Running gwan
+## Running sdx
 
 ### Full node on the main wanchain network
 
@@ -35,7 +35,7 @@ the user doesn't care about years-old historical data, so we can fast-sync quick
 state of the network. To do so:
 
 ```
-$ gwan console
+$ sdx console
 ```
 
 This command will:
@@ -54,7 +54,7 @@ entire system. In other words, instead of attaching to the main network, you wan
 network with your node, which is fully equivalent to the main network, but with play-Ether only.
 
 ```
-$ gwan --testnet console
+$ sdx --testnet console
 ```
 
 The `console` subcommand have the exact same meaning as above and they are equally useful on the
@@ -137,7 +137,7 @@ via the `--bootnodes` flag. It will probably also be desirable to keep the data 
 private network separated, so do also specify a custom `--datadir` flag.
 
 ```
-$ gwan --datadir=path/to/custom/data/folder --bootnodes=<bootnode-enode-url-from-above>
+$ sdx --datadir=path/to/custom/data/folder --bootnodes=<bootnode-enode-url-from-above>
 ```
 
 *Note: Since your network will be completely cut off from the main and test networks, you'll also
