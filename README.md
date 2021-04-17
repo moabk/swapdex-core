@@ -60,7 +60,7 @@ $ sdx --testnet console
 The `console` subcommand have the exact same meaning as above and they are equally useful on the
 testnet too. Please see above for their explanations if you've skipped to here.
 
-Specifying the `--testnet` flag however will reconfigure your gwan instance a bit:
+Specifying the `--testnet` flag however will reconfigure your sdx instance a bit:
 
  * Instead of using the default data directory (`~/.swapdex` on Linux for example), sdx will nest
    itself one level deeper into a `testnet` subfolder (`~/.swapdex/testnet` on Linux). Note, on OSX
@@ -72,7 +72,7 @@ Specifying the `--testnet` flag however will reconfigure your gwan instance a bi
    
 *Note: Although there are some internal protective measures to prevent transactions from crossing
 over between the main network and test network, you should make sure to always use separate accounts
-for play-money and real-money. Unless you manually move accounts, gwan will by default correctly
+for play-money and real-money. Unless you manually move accounts, sdx will by default correctly
 separate the two networks and will not make any accounts available between them.*
 
 ### Programatically interfacing sdx nodes
@@ -82,7 +82,7 @@ network via your own programs and not manually through the console. To aid this,
 support for a JSON-RPC based APIs 。These can be
 exposed via HTTP, WebSockets and IPC (unix sockets on unix based platforms, and named pipes on Windows).
 
-The IPC interface is enabled by default and exposes all the APIs supported by gwan, whereas the HTTP
+The IPC interface is enabled by default and exposes all the APIs supported by sdx, whereas the HTTP
 and WS interfaces need to manually be enabled and only expose a subset of APIs due to security reasons.
 These can be turned on/off and configured as you'd expect.
 
@@ -103,7 +103,7 @@ HTTP based JSON-RPC API options:
   * `--ipcpath` Filename for IPC socket/pipe within the datadir (explicit paths escape it)
 
 You'll need to use your own programming environments' capabilities (libraries, tools, etc) to connect
-via HTTP, WS or IPC to a gwan node configured with the above flags and you'll need to speak [JSON-RPC](http://www.jsonrpc.org/specification)
+via HTTP, WS or IPC to a sdx node configured with the above flags and you'll need to speak [JSON-RPC](http://www.jsonrpc.org/specification)
 on all transports. You can reuse the same connection for multiple requests!
 
 **Note: Please understand the security implications of opening up an HTTP/WS based transport before
@@ -127,7 +127,7 @@ that other nodes can use to connect to it and exchange peer information. Make su
 displayed IP address information (most probably `[::]`) with your externally accessible IP to get the
 actual `enode` URL.
 
-*Note: You could also use a full fledged gwan node as a bootnode, but it's the less recommended way.*
+*Note: You could also use a full fledged sdx node as a bootnode, but it's the less recommended way.*
 
 #### Starting up your member nodes
 
