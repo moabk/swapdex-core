@@ -8,7 +8,7 @@ develop   | [![CircleCI](https://circleci.com/gh/wanchain/go-wanchain/tree/devel
 
 ## Building the source
 
-Building gwan requires both a Go (version 1.7 or later) and a C compiler.
+Building sdx requires both a Go (version 1.7 or later) and a C compiler.
 
 If build release version,Docker is required
 
@@ -27,7 +27,7 @@ or, to build the release version
 
 ## Running sdx
 
-### Full node on the main wanchain network
+### Full node on the main swapdex network
 
 By far the most common scenario is people wanting to simply interact with the wanchain network:
 create accounts; transfer funds; deploy and interact with contracts. For this particular use-case
@@ -40,7 +40,7 @@ $ sdx console
 
 This command will:
 
- * Start gwan in fast sync mode (default, can be changed with the `--syncmode` flag), causing it to
+ * Start sdx in fast sync mode (default, can be changed with the `--syncmode` flag), causing it to
    download more data in exchange for avoiding processing the entire history of the wanchain network,
    which is very CPU intensive.
    This too is optional and if you leave it out you can always attach to an already running gwan instance
@@ -62,11 +62,11 @@ testnet too. Please see above for their explanations if you've skipped to here.
 
 Specifying the `--testnet` flag however will reconfigure your gwan instance a bit:
 
- * Instead of using the default data directory (`~/.wanchain` on Linux for example), gwan will nest
+ * Instead of using the default data directory (`~/.swapdex` on Linux for example), sdx will nest
    itself one level deeper into a `testnet` subfolder (`~/.wanchain/testnet` on Linux). Note, on OSX
    and Linux this also means that attaching to a running testnet node requires the use of a custom
-   endpoint since `gwan attach` will try to attach to a production node endpoint by default. E.g.
-   `gwan attach <datadir>/testnet/gwan.ipc`. Windows users are not affected by this.
+   endpoint since `sdx attach` will try to attach to a production node endpoint by default. E.g.
+   `sdx attach <datadir>/testnet/sdx.ipc`. Windows users are not affected by this.
  * Instead of connecting the main wanchain network, the client will connect to the test network,
    which uses different P2P bootnodes, different network IDs and genesis states.
    
@@ -77,8 +77,8 @@ separate the two networks and will not make any accounts available between them.
 
 ### Programatically interfacing gwan nodes
 
-As a developer, sooner rather than later you'll want to start interacting with gwan and the wanchain
-network via your own programs and not manually through the console. To aid this, gwan has built in
+As a developer, sooner rather than later you'll want to start interacting with sdx and the swapdex
+network via your own programs and not manually through the console. To aid this, sdx has built in
 support for a JSON-RPC based APIs 。These can be
 exposed via HTTP, WebSockets and IPC (unix sockets on unix based platforms, and named pipes on Windows).
 
@@ -148,11 +148,11 @@ need to configure a miner to process transactions and create new blocks for you.
 One of the quickest ways to get wanchain up and running on your machine is by using Docker:
 
 ```
-docker run -d --name wanchain-node -v /home/ubuntu/wanchain:/root \
+docker run -d --name swapdex-node -v /home/ubuntu/swapdex:/root \
            -p 8545:8545 -p 17717:17717 \
            wanchain/client-go --rpc
 ```
 
-This will start gwan in fast-sync mode with a DB memory allowance of 1GB just as the above command does.  It will also create a persistent volume in your home directory for saving your blockchain as well as map the default ports. 
+This will start sdx in fast-sync mode with a DB memory allowance of 1GB just as the above command does.  It will also create a persistent volume in your home directory for saving your blockchain as well as map the default ports. 
 Do not forget `--rpcaddr 0.0.0.0`, if you want to access RPC from other containers and/or hosts. By default, `gwan` binds to the local interface and RPC endpoints is not accessible from the outside.
 
